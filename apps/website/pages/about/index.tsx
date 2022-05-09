@@ -2,12 +2,12 @@ import React from 'react'
 import Head from 'next/head'
 
 const pageMeta: PageMeta = {
-  title: 'Home',
+  title: 'About',
   description: 'A Magic: The Gathering Deck Builder',
   canonical: '/'
 }
 
-const Home = (): JSX.Element => {
+const About = (): JSX.Element => {
   return (
     <>
       <Head>
@@ -23,9 +23,9 @@ const Home = (): JSX.Element => {
         <meta name='twitter:url' content={pageMeta.canonical} />
         <meta name='twitter:description' content={pageMeta.description} />
       </Head>
-      <div>Home</div>
+      <div>About</div>
     </>
   )
 }
 
-export default Home
+export default About

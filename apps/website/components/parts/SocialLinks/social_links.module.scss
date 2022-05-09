@@ -1,0 +1,30 @@
+@import '../../../styles/colours';
+
+.social_links {
+  color: #ffffff;
+  background-color: $hunter-green;
+  padding: .5rem 0rem;
+  ul {
+    list-style: none;
+    padding: unset;
+    margin: unset;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-right: 0;
+    margin-left: auto;
+    li {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      a {
+        margin: 0px .5rem;
+      }
+      &:last-child {
+        a {
+          margin-right: unset;
+        }
+      }
+    }
+  }
+}
