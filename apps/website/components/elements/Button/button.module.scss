@@ -1,0 +1,43 @@
+@import '../../../styles/colours';
+
+.button {
+  text-transform: uppercase;
+  font-weight: 500;
+  letter-spacing: 1px;
+  display: inline-block;
+  border-radius: 4px;
+  transition: 0.5s;
+  border: unset;
+  cursor: pointer;
+}
+
+.primary {
+  color: $white;
+  background-color: $hunter-green;
+  &:hover {
+    background-color: $fern-green;
+  }
+}
+
+.secondary {
+  color: $hunter-green;
+  background-color: $timberwolf;
+  &:hover {
+    background-color: $white;
+  }
+}
+
+.small {
+  font-size: 12px;
+  padding: 8px 15px;
+}
+
+.medium {
+  font-size: 14px;
+  padding: 10px 25px;
+}
+
+.large {
+  font-size: 16px;
+  padding: 15px 30px;
+}

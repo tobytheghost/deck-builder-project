@@ -1,0 +1,15 @@
+.column {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: flex-start;
+  padding-left: 1rem;
+  position: relative;
+  &:first-child {
+    padding-left: unset;
+  }
+}
+
+.align-center {
+  align-items: center;
+}

@@ -10,7 +10,7 @@ const Header = (): JSX.Element => {
     <>
       <SocialLinks />
       <header className={style.header}>
-        <Container>
+        <Container align='center'>
           <Logo />
           <Navigation />
         </Container>

@@ -1,4 +1,5 @@
 $grey: #222222;
+$white: #ffffff;
 
 /* SCSS RGB */
 $timberwolf: rgba(218, 215, 205, 1);
@@ -6,6 +7,9 @@ $laurel-green: rgba(163, 177, 138, 1);
 $fern-green: rgba(88, 129, 87, 1);
 $hunter-green: rgba(58, 90, 64, 1);
 $brunswick-green: rgba(52, 78, 65, 1);
+
+$timberwolf-75: rgba(218, 215, 205, .75);
+$laurel-green-75: rgba(163, 177, 138, .75);
 
 /* SCSS Gradient */
 $gradient-top: linear-gradient(

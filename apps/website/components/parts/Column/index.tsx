@@ -1,32 +1,30 @@
 import React from 'react'
-import styles from './container.module.scss'
+import styles from './column.module.scss'
 
-type containerTypes = {
+type columnTypes = {
   children: React.ReactNode
   className?: string
   align?: string
 }
 
-const Container = ({
+const Column = ({
   className,
-  children,
   align,
+  children,
   ...rest
-}: containerTypes): JSX.Element => {
+}: columnTypes): JSX.Element => {
   return (
     <div
       {...rest}
       className={[
         className,
-        styles.container,
+        styles.column,
         align && styles[`align-${align}`]
-      ]
-        .filter(Boolean)
-        .join(' ')}
+      ].join(' ')}
     >
       {children}
     </div>
   )
 }
 
-export default Container
+export default Column

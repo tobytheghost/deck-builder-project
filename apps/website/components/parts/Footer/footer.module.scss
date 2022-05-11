@@ -1,4 +1,8 @@
+@import '../../../styles/colours';
+
 .footer {
   display: flex;
   min-height: 84px;
+  color: $white;
+  background-color: $hunter-green;
 }
