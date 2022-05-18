@@ -1,0 +1,22 @@
+@import '../../../styles/_colours.scss';
+
+.input {
+  padding: 10px 15px;
+  border-radius: 0;
+  box-shadow: none;
+  font-size: 14px;
+  display: block;
+  width: 100%;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: $grey;
+  background-color: $white;
+  background-clip: padding-box;
+  border: 1px solid $fern-green;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border-radius: 0.25rem;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}

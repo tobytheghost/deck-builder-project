@@ -1,4 +1,4 @@
-@import "../../../styles/colours";
+@import "../../../../../libs/ui/src/styles/colours";
 
 .navigation {
   position: relative;
@@ -12,9 +12,10 @@
     display: flex;
     list-style: none;
     align-items: center;
+    margin: 0 -14px;
     li {
       white-space: nowrap;
-      padding: 10px 0 10px 28px;
+      padding: 10px 14px 10px 14px;
       a {
         cursor: pointer;
         display: flex;
@@ -27,6 +28,7 @@
         white-space: nowrap;
         transition: 0.3s;
         position: relative;
+        text-decoration: none;
         &:before {
           content: '';
           position: absolute;

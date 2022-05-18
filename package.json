@@ -11,6 +11,8 @@
   "dependencies": {
     "@nrwl/next": "14.1.4",
     "core-js": "^3.6.5",
+    "env-cmd": "^10.1.0",
+    "firebase": "^9.8.1",
     "next": "12.1.5",
     "react": "18.1.0",
     "react-dom": "18.1.0",

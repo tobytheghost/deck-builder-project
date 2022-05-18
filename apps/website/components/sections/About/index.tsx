@@ -1,12 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import React from 'react'
 
-import Column from '../../parts/Column'
-import Container from '../../parts/Container'
-import Section from '../../parts/Section'
-import H2 from '../../elements/H2'
-import H3 from '../../elements/H3'
-import P from '../../elements/P'
+import { Column, Container, Section, H2, H3, P } from '@deck-app/ui'
 
 import styles from './about.module.scss'
 
@@ -30,7 +25,11 @@ const About = ({ title, subtitle }: aboutProps) => {
       </Container>
       <Container>
         <Column>
-          <img src={imageUrl} alt={'People playing magic'} style={{ maxWidth: '100%' }}/>
+          <img
+            src={imageUrl}
+            alt={'People playing magic'}
+            style={{ maxWidth: '100%' }}
+          />
         </Column>
         <Column>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do

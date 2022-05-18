@@ -1,8 +1,5 @@
 import React from 'react'
-import Button from '../../elements/Button'
-import Column from '../../parts/Column'
-import Container from '../../parts/Container'
-import Section from '../../parts/Section'
+import { Button, Column, Container, Section } from '@deck-app/ui'
 
 import styles from './hero.module.scss'
 

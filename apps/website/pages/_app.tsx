@@ -1,7 +1,7 @@
 import { AppProps } from 'next/app'
 import Head from 'next/head'
 import Header from '../components/parts/Header'
-import Footer from '../components/parts/Footer'
+import { Footer } from '@deck-app/ui'
 import './styles.scss'
 
 function CustomApp ({ Component, pageProps }: AppProps) {

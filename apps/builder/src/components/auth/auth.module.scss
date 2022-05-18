@@ -1,0 +1,56 @@
+@import '../../../../../libs/ui/src/styles/_colours.scss';
+
+.forgot-password,
+.login,
+.sign-up {
+  border: 1px solid $fern-green;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-width: 600px;
+  width: 100%;
+  padding: 1rem;
+  margin: 0 auto;
+}
+
+.label {
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.button {
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+.alert {
+  color: $white;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+}
+
+.alert-danger {
+  background: $danger;
+}
+
+.alert-info {
+  background: $info;
+}
+
+.alert-warn {
+  background: $warning;
+}
+
+.alert-success {
+  background: $success;
+}
+
+.no-account {
+  text-align: center;
+  max-width: 600px;
+  width: 100%;
+  margin: 0 auto;
+  margin-top: 1rem;
+}
