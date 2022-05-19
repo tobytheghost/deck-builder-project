@@ -9,9 +9,7 @@ import P from './components/elements/P'
 import Column from './components/parts/Column'
 import Container from './components/parts/Container'
 import Footer from './components/parts/Footer'
-import Header from '../../../apps/website/components/parts/Header'
 import Logo from './components/parts/Logo'
-import Navigation from '../../../apps/website/components/parts/Navigation'
 import Row from './components/parts/Row'
 import Section from './components/parts/Section'
 import SocialLinks from './components/parts/SocialLinks'
@@ -27,9 +25,7 @@ export {
   Column,
   Container,
   Footer,
-  Header,
   Logo,
-  Navigation,
   Row,
   Section,
   SocialLinks
