@@ -1,5 +1,6 @@
 import firebase from 'firebase/compat/app'
 import 'firebase/compat/auth'
+import 'firebase/compat/firestore';
 
 const app = firebase.initializeApp({
   // apiKey: process.env.NX_FIREBASE_API_KEY,
@@ -17,7 +18,8 @@ const app = firebase.initializeApp({
   appId: '1:1019549027130:web:62d95188ac3850a7f5de03',
   measurementId: 'G-6QVM05E798'
 })
-
 export type FirebaseUser = firebase.User
+export type Timestamp = firebase.firestore.Timestamp
 export const auth = app.auth()
+export const db = app.firestore();
 export default app

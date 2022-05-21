@@ -1,0 +1,56 @@
+@import '../../../../../../libs/ui/src/styles/_breakpoints.scss';
+
+.card {
+  line-height: 22px;
+  margin-bottom: .5rem;
+  i {
+    margin-right: 0.125rem;
+  }
+}
+
+.list {
+  column-count: 1;
+  @include md {
+    column-count: 2;
+  }
+  @include xl {
+    column-count: 3;
+  }
+  display: block;
+  text-align: left;
+}
+
+.header-image {
+  max-width: 100%;
+  margin-top: 1rem;
+}
+
+.container {
+  display: block;
+  @include md {
+    display: flex;
+  }
+}
+
+.image-container {
+  flex: 1;
+  @include md {
+    flex: 0.5;
+  }
+  @include xl {
+    flex: 0.33;
+  }
+  img {
+    max-width: 100%;
+  }
+}
+
+.content-container {
+  flex: 1;
+  @include md {
+    flex: 0.5;
+  }
+  @include xl {
+    flex: 0.67;
+  }
+}

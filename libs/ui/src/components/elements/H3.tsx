@@ -4,12 +4,13 @@ import styles from './typography.module.scss'
 type h3Props = {
   children: React.ReactNode
   className?: string
-  color?: string
+  color?: string,
+  weight: 'normal' | 'bold'
 }
 
 const H3 = (props: h3Props) => {
-  const { color, children, className, ...rest } = props
-  const h3Class = [styles['h3'], className, color && styles[color]]
+  const { color, children, className, weight, ...rest } = props
+  const h3Class = [styles['h3'], className, color && styles[color], weight && styles[weight]]
     .filter(Boolean)
     .join(' ')
   return (
@@ -20,7 +21,8 @@ const H3 = (props: h3Props) => {
 }
 
 H3.defaultProps = {
-  color: 'grey'
+  color: 'grey',
+  weight: 'normal'
 }
 
 export default H3

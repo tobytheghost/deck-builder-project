@@ -3,13 +3,14 @@ import styles from './typography.module.scss'
 
 type h2Props = {
   children: React.ReactNode
+  type: 'bubble' | 'header'
   className?: string
   color?: string
 }
 
 const H2 = (props: h2Props) => {
-  const { color, children, className, ...rest } = props
-  const h2Class = [styles['h2'], className, color && styles[color]]
+  const { color, children, className, type, ...rest } = props
+  const h2Class = [styles['h2'], className, color && styles[color], type && styles[`h2-${type}`]]
     .filter(Boolean)
     .join(' ')
   return (
@@ -20,7 +21,8 @@ const H2 = (props: h2Props) => {
 }
 
 H2.defaultProps = {
-  color: 'grey'
+  color: 'grey',
+  type: 'bubble'
 }
 
 export default H2

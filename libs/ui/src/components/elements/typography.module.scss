@@ -1,13 +1,19 @@
 @import '../../styles/colours';
+@import '../../styles/breakpoints';
 
 .h1 {
   margin: 0;
   font-size: 2.5rem;
   font-weight: 700;
   line-height: 3rem;
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+  @include md {
+    margin-top: unset;
+  }
 }
 
-.h2 {
+.h2-bubble {
   font-size: 13px;
   letter-spacing: 1px;
   font-weight: 700;
@@ -19,11 +25,19 @@
   border-radius: 50px;
 }
 
+.h2-header {
+  margin: 0;
+  font-size: 2rem;
+  font-weight: 400;
+  line-height: 2.5rem;
+  margin-bottom: 1rem;
+}
+
 .h3 {
   margin: 0;
   font-size: 1.5rem;
   font-weight: 400;
-  margin: 1rem 0 1.5rem 0;
+  margin: 1rem 0;
 }
 
 .paragraph {
@@ -40,4 +54,12 @@
 
 .green {
   color: $hunter-green;
+}
+
+.normal {
+  font-weight: 400;
+}
+
+.bold {
+  font-weight: 700;
 }

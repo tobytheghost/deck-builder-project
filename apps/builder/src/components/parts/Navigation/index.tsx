@@ -13,8 +13,7 @@ export default function Navigation () {
   return (
     <nav className={styles['navigation']}>
       <ul>
-        <NavLink className={styles['item']} href='/' text={`Decks`} />
-        <NavLink className={styles['item']} href='/profile' text={`Profile`} />
+        <NavLink className={styles['item']} href='/' text={`Profile`} />
         <li>
           <Button size='small' onClick={handleLogout}>Log Out</Button>
         </li>

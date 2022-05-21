@@ -1,16 +1,17 @@
-import React from 'react'
-import { H3, P } from '@deck-app/ui'
-import { useAuth } from '../../../contexts/AuthContext'
-import Page from '../../parts/Page'
+import AccountProfileContainer from './AccountProfileContainer'
+import ProfileContainer from './ProfileContainer'
+import ProfileContextProvider from '../../../contexts/ProfileContext'
+import profileReducer, {
+  initialProfileState
+} from '../../../contexts/ProfileStateReducer'
+import { useParams } from 'react-router-dom'
 
 const Profile = () => {
-  const { currentUser } = useAuth()
-
+  const { profileId } = useParams()
   return (
-    <Page>
-      <H3>Profile</H3>
-      <P>Email: {currentUser && currentUser.email}</P>
-    </Page>
+    <ProfileContextProvider reducer={profileReducer} initialState={initialProfileState}>
+      {profileId ? <ProfileContainer profileId={profileId} /> : <AccountProfileContainer /> }
+    </ProfileContextProvider>
   )
 }
 

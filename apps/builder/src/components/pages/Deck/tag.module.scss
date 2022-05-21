@@ -1,0 +1,45 @@
+.format,
+.tag {
+  font-size: 13px;
+  letter-spacing: 1px;
+  font-weight: 700;
+  padding: 8px 20px;
+  display: inline-block;
+  text-transform: uppercase;
+  border-radius: 50px;
+  margin-bottom: 1rem;
+  margin-right: 0.5rem;
+  &-edh {
+    background-color: #ffb74d;
+  }
+  &-legacy {
+    background-color: #9575cd;
+  }
+  &-modern {
+    background-color: #81c784;
+  }
+  &-pauper {
+    background-color: #e0e0e0;
+  }
+  &-standard {
+    background-color: #e57373;
+  }
+  &-vintage {
+    background-color: #4dd0e1;
+  }
+  &-pioneer {
+    background-color: #64b5f6;
+  }
+  &-brawl {
+    background-color: #a1887f;
+  }
+  &-historic {
+    background-color: #90a4ae;
+  }
+  &-competitive {
+    background-color: #e57373;
+  }
+  &-casual {
+    background-color: #81c784;
+  }
+}

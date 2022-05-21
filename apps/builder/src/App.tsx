@@ -5,17 +5,22 @@ import AuthProvider from './contexts/AuthContext'
 import PrivateRoute from './components/PrivateRoute'
 import SignUp from './components/auth/SignUp'
 import Login from './components/auth/Login'
-import Dashboard from './components/pages/Dashboard'
+import Deck from './components/pages/Deck'
 import ForgotPassword from './components/auth/ForgotPassword'
 import Profile from './components/pages/Profile'
+import { ErrorPage } from './components/pages/404'
 
 const routes = [
   {
     path: '/',
-    element: <Dashboard />
+    element: <Profile />
   },
   {
-    path: '/profile',
+    path: '/d/:deckId',
+    element: <Deck />
+  },
+  {
+    path: '/p/:profileId',
     element: <Profile />
   },
   {
@@ -32,6 +37,11 @@ const routes = [
     path: '/forgot-password',
     element: <ForgotPassword />,
     isPrivate: false
+  },
+  {
+    path: '/oops',
+    element: <ErrorPage />,
+    isPrivate: false
   }
 ]
 
@@ -44,6 +54,7 @@ export function App () {
           const { isPrivate = true, element, path } = route
           return (
             <Route
+              key={path}
               path={path}
               element={
                 isPrivate ? <PrivateRoute>{element}</PrivateRoute> : element
@@ -51,6 +62,7 @@ export function App () {
             />
           )
         })}
+        <Route element={<ErrorPage />}/>
       </Routes>
     </AuthProvider>
   )

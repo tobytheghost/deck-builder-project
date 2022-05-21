@@ -1,19 +1,32 @@
-import React, { useContext, createContext, useReducer } from 'react'
+import React, { useContext, createContext, useReducer, Dispatch } from 'react'
+import {
+  DeckContextProviderType,
+  DeckReducerActionType,
+  DeckStateTypes
+} from './DeckTypes'
 
-type DefaultStateTypes = object
-
-type DeckReducerType = (state: object, action: string) => object
-
-type DeckContextProviderType = {
-  reducer: DeckReducerType,
-  initialState: object,
-  children: React.ReactNode
+export const initialDeckState: DeckStateTypes = {
+  id: '',
+  image: '',
+  deck_name: '',
+  list: [],
+  user_id: '',
+  tag: '',
+  format: ''
 }
 
-const defaultState = {}
-const deckContext = createContext<DefaultStateTypes>(defaultState)
+type DeckContextTypes = [DeckStateTypes, Dispatch<DeckReducerActionType>]
 
-const DeckContextProvider = ({ reducer, initialState, children }: DeckContextProviderType) => {
+const deckContext = createContext<DeckContextTypes>([
+  initialDeckState,
+  () => null
+])
+
+export const DeckContextProvider = ({
+  reducer,
+  initialState,
+  children
+}: DeckContextProviderType) => {
   return (
     <deckContext.Provider value={useReducer(reducer, initialState)}>
       {children}
@@ -21,8 +34,6 @@ const DeckContextProvider = ({ reducer, initialState, children }: DeckContextPro
   )
 }
 
-export function useDeckContext () {
+export default function useDeckContext () {
   return useContext(deckContext)
 }
-
-export default DeckContextProvider
