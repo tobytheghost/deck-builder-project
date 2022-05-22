@@ -17,6 +17,7 @@ export interface ProfileStateTypes {
 
 export interface ProfileActionTypes {
   type: string
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   payload?: any
 }
 

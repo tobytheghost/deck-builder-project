@@ -15,7 +15,7 @@ const ProfileView = ({
   profileState,
   lookupId
 }: ProfileViewTypes) => {
-  const isEditable = currentUser && lookupId && currentUser.uid === lookupId
+  // const isEditable = currentUser && lookupId && currentUser.uid === lookupId
   const { loading, decks, user } = profileState
   const username = user && user.display_name
   return (

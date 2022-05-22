@@ -34,6 +34,7 @@ export interface CardItemTypes {
 
 export interface DeckReducerActionType {
   type: string,
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   payload?: any
 }
 

@@ -1,7 +1,6 @@
 import React from 'react'
 import Header from '../Header'
 import { Section, Row } from '@deck-app/ui'
-import styles from '../../../app.module.scss'
 import ProfileContextProvider from '../../../contexts/ProfileContext'
 import profileReducer, {
   initialProfileState
