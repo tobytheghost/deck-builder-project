@@ -25,7 +25,7 @@ const ProfileView = ({
           <Column>
             <H1>{username ? `${username}'s ` : ''}Profile</H1>
             <P>Display Name: {user && user.display_name}</P>
-            <P>Member Since: {user && user.user_since && user.user_since.toDate().toLocaleDateString()}</P>
+            <P>Member since: {user && user.user_since && user.user_since.toDate().toLocaleDateString()}</P>
             <P>Last Online: {user && user.last_active && user.last_active.toDate().toLocaleDateString()}</P>
             {!loading &&
               decks &&

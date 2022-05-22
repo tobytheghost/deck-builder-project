@@ -13,13 +13,19 @@ export const useUser = (lookupId: string | null) => {
     const userQuery = db.collection('users').where('user_id', '==', lookupId)
     const unsubscribeUser = userQuery.onSnapshot(
       querySnapshot => {
-        const docs = querySnapshot.docs
-        const user = docs[0].data() as UserStateType
-        setUser(user)
-        setIsUserLoading(false)
+        try {
+          const docs = querySnapshot.docs
+          if(!docs.length) return setIsUserError(true)
+          const user = docs[0].data() as UserStateType
+          setUser(user)
+          setIsUserLoading(false)
+        } catch (err) {
+          setIsUserError(true)
+          setIsUserLoading(false)
+        }
       },
       err => {
-        console.log(err)
+        console.error(err)
         setIsUserError(true)
       }
     )

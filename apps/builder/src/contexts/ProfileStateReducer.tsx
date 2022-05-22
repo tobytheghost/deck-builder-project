@@ -1,4 +1,8 @@
-import { ProfileStateTypes, ProfileActionTypes, UserStateType } from './ProfileTypes'
+import {
+  ProfileStateTypes,
+  ProfileActionTypes,
+  UserStateType
+} from './ProfileTypes'
 
 export const initialUserState: UserStateType = {
   display_name: '',
@@ -13,6 +17,7 @@ export const initialProfileState: ProfileStateTypes = {
 
 export const profileStateActions = {
   SET_LOADING: 'SET_LOADING',
+  SET_PROFILE: 'SET_PROFILE',
   SET_DECKS: 'SET_DECKS',
   SET_USER: 'SET_USER'
 }
@@ -26,6 +31,13 @@ const profileReducer = (
       return {
         ...state,
         loading: action.payload.loading
+      }
+    case profileStateActions.SET_PROFILE:
+      return {
+        ...state,
+        user: action.payload.user,
+        decks: action.payload.decks,
+        loading: false
       }
     case profileStateActions.SET_DECKS:
       return {

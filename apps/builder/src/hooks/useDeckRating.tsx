@@ -16,7 +16,7 @@ export const useDeckRating = (deckId: string) => {
         setRating(meanRating)
         setNumberOfRatings(ratings.length)
       },
-      err => console.log(err)
+      err => console.error(err)
     )
     return () => unsubscribeRating()
   }, [deckId])

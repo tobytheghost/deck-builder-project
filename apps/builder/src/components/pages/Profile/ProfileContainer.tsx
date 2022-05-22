@@ -1,15 +1,16 @@
 import { useAuth } from '../../../contexts/AuthContext'
 import ProfileView from './ProfileView'
 import { Navigate } from 'react-router-dom'
-import { useProfile } from './useProfile'
+import { useProfileState } from './useProfileState'
 
 const ProfileContainer = ({ profileId }: { profileId?: string }) => {
   const { currentUser } = useAuth()
   const uid = currentUser && currentUser.uid
   const lookupId = profileId || uid
-  const { profileState, isError } = useProfile(lookupId)
+  const { profileState, isProfileError, isProfileLoading } = useProfileState(lookupId)
 
-  if (isError) return <Navigate to='/oops' />
+  if (isProfileError) return <Navigate to='/oops' />
+  if (isProfileLoading) return null
 
   return <ProfileView currentUser={currentUser} profileState={profileState} lookupId={lookupId}/>
 }

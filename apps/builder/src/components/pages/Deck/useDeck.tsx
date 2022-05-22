@@ -32,7 +32,7 @@ export const useDeck = () => {
           setIsDeckLoading(false)
         })
       } catch (err) {
-        console.log(err)
+        console.error(err)
         setIsError(true)
       }
     }
