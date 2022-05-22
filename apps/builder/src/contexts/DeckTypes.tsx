@@ -1,6 +1,6 @@
 import { Timestamp } from '../firebase'
 
-export type DeckContextProviderType = {
+export interface DeckContextProviderType {
   reducer: DeckReducerType
   initialState: DeckStateTypes
   children: React.ReactNode
@@ -21,7 +21,7 @@ export interface DeckFirebaseTypes extends Omit<DeckStateTypes, 'list'> {
   list: string
 }
 
-export type CardItemTypes = {
+export interface CardItemTypes {
   name: string
   cmc: number
   quantity: number
@@ -32,7 +32,7 @@ export type CardItemTypes = {
   image: string
 }
 
-export type DeckReducerActionType = {
+export interface DeckReducerActionType {
   type: string,
   payload?: any
 }

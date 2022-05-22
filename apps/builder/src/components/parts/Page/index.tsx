@@ -20,7 +20,7 @@ const Page = ({ children }: PageType) => {
           reducer={profileReducer}
           initialState={initialProfileState}
         >
-          <Section className={styles['page-main-section']}>
+          <Section>
             <Row align='center'>{children}</Row>
           </Section>
         </ProfileContextProvider>

@@ -20,7 +20,7 @@ const routes = [
     element: <Deck />
   },
   {
-    path: '/p/:profileId',
+    path: '/u/:profileId',
     element: <Profile />
   },
   {
@@ -62,7 +62,7 @@ export function App () {
             />
           )
         })}
-        <Route element={<ErrorPage />}/>
+        <Route path="*" element={<ErrorPage />}/>
       </Routes>
     </AuthProvider>
   )

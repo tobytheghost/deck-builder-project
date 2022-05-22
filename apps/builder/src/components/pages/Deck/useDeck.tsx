@@ -8,34 +8,36 @@ import { formatDeckFirebaseToState } from '../../../../src/helpers/formatFirebas
 import { DeckFirebaseTypes } from '../../../../src/contexts/DeckTypes'
 
 export const useDeck = () => {
-  const [isError, setIsError] = useState(false)
+  const [isDeckLoading, setIsDeckLoading] = useState(true)
+  const [isDeckError, setIsError] = useState(false)
   const { currentUser } = useAuth()
   const uid = currentUser && currentUser.uid
   const [deck, dispatch] = useDeckContext()
   const { deckId } = useParams()
 
   useEffect(() => {
-    const getDeckById = async (deckId: string) => {
-      const docRef = db.collection('decks').doc(deckId)
-      const doc = await docRef.get()
-      if (!doc || !doc.exists) return setIsError(true)
-      return docRef.onSnapshot(snapshot => {
-        const id = snapshot.id
-        const loadedDeck = snapshot.data() as DeckFirebaseTypes
-        return dispatch({
-          type: deckStateActions.SET_DECK,
-          payload: formatDeckFirebaseToState(loadedDeck, id)
-        })
-      })
-    }
     if(!deckId) return
+    const getDeckById = async (deckId: string) => {
+      try {
+        const docRef = db.collection('decks').doc(deckId)
+        const doc = await docRef.get()
+        if (!doc || !doc.exists) return setIsError(true)
+        return docRef.onSnapshot(snapshot => {
+          const id = snapshot.id
+          const loadedDeck = snapshot.data() as DeckFirebaseTypes
+          dispatch({
+            type: deckStateActions.SET_DECK,
+            payload: formatDeckFirebaseToState(loadedDeck, id)
+          })
+          setIsDeckLoading(false)
+        })
+      } catch (err) {
+        console.log(err)
+        setIsError(true)
+      }
+    }
     getDeckById(deckId)
-    return () =>
-      dispatch({
-        type: deckStateActions.SET_DECK,
-        payload: initialDeckState
-      })
   }, [deckId, uid, dispatch])
 
-  return { deck, isError }
+  return { deck, isDeckError, isDeckLoading }
 }

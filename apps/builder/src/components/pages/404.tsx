@@ -1,14 +1,12 @@
 import {
   Column,
   Container,
-  H2,
+  H1,
   P,
   Row,
-  Section,
-  SocialLinks
+  Section
 } from '@deck-app/ui'
 import { Link } from 'react-router-dom'
-import styles from '../../app.module.scss'
 
 export const ErrorPage = () => {
   return (
@@ -17,7 +15,7 @@ export const ErrorPage = () => {
         <Container>
           <Row align='center'>
             <Column align='center'>
-              <H2 type='header'>404 - Page not found</H2>
+              <H1>404 - Page not found</H1>
               <P>
                 <Link to='/'>Go Home</Link>
               </P>

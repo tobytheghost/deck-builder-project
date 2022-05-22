@@ -8,16 +8,36 @@ import {
 import styles from './deck.module.scss'
 import { Tags } from './Tag'
 import { useDeckViews } from './useDeckViews'
+import { UserStateType } from '../../../contexts/ProfileTypes'
 
-type TypeViewTypes = { typeKey: string; list: CardItemTypes[] }
+interface TypeViewTypes {
+  typeKey: string
+  list: CardItemTypes[]
+}
 
-type BoardViewTypes = {
+interface BoardViewTypes {
   boardKey: string
   list: TypeViewTypes[]
 }
 
-const DeckView = (props: DeckStateTypes) => {
-  const { image, deck_name: deckName, tag, format, timestamp } = props
+interface RatingTypes {
+  rating: number
+  numberOfRatings: number
+}
+
+type DeckProps = DeckStateTypes & UserStateType & RatingTypes
+
+const DeckView = (props: DeckProps) => {
+  const {
+    image,
+    deck_name: deckName,
+    tag,
+    format,
+    timestamp,
+    display_name: displayName,
+    rating,
+    numberOfRatings
+  } = props
   const views = useDeckViews(props, '')
   return (
     <Page>
@@ -29,9 +49,11 @@ const DeckView = (props: DeckStateTypes) => {
           <Column className={styles['content-container']}>
             <H1>{deckName}</H1>
             <Tags tag={tag} format={format} />
-            <P>User: </P>
-            {timestamp && <P>Last updated: {timestamp.toDate().toLocaleDateString()}</P>}
-            <P>Community Rating:</P>
+            <P>User: {displayName}</P>
+            {timestamp && (
+              <P>Last updated: {timestamp.toDate().toLocaleDateString()}</P>
+            )}
+            <P>Community Rating: {Math.ceil(rating)} ({numberOfRatings})</P>
           </Column>
         </Row>
       </Container>

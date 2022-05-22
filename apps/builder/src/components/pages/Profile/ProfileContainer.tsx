@@ -1,20 +1,17 @@
-import { useEffect, useState } from 'react'
 import { useAuth } from '../../../contexts/AuthContext'
-import { db } from '../../../firebase'
-import { useProfileContext } from '../../../contexts/ProfileContext'
 import ProfileView from './ProfileView'
-import safeParseJson from '../../../helpers/safeParseJson'
-import { profileStateActions } from '../../../contexts/ProfileStateReducer'
 import { Navigate } from 'react-router-dom'
+import { useProfile } from './useProfile'
 
-const ProfileContainer = ({ profileId }: { profileId: string }) => {
+const ProfileContainer = ({ profileId }: { profileId?: string }) => {
   const { currentUser } = useAuth()
-  const [state, dispatch] = useProfileContext()
-  const [isError, setIsError] = useState(true)
+  const uid = currentUser && currentUser.uid
+  const lookupId = profileId || uid
+  const { profileState, isError } = useProfile(lookupId)
 
   if (isError) return <Navigate to='/oops' />
 
-  return <ProfileView currentUser={currentUser} profileState={state} />
+  return <ProfileView currentUser={currentUser} profileState={profileState} lookupId={lookupId}/>
 }
 
 export default ProfileContainer

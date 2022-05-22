@@ -6,11 +6,11 @@ export const useDeckViews = (deck: DeckStateTypes, filter: string) => {
   const types = [
     'Commander',
     'Creatures',
-    'Instants',
-    'Sorceries',
-    'Planeswalkers',
-    'Enchantments',
     'Artifacts',
+    'Enchantments',
+    'Instants',
+    'Planeswalkers',
+    'Sorceries',
     'Lands'
   ]
 
@@ -27,11 +27,11 @@ export const useDeckViews = (deck: DeckStateTypes, filter: string) => {
               if (a.name < b.name) return -1
               return 0
             })
-            .sort((a, b) => {
-              if (a.cmc > b.cmc) return 1
-              if (a.cmc < b.cmc) return -1
-              return 0
-            })
+            // .sort((a, b) => {
+            //   if (a.cmc > b.cmc) return 1
+            //   if (a.cmc < b.cmc) return -1
+            //   return 0
+            // })
         }
       })
     }

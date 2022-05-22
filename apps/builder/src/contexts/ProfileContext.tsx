@@ -1,29 +1,6 @@
-import React, { useContext, createContext, useReducer, Dispatch } from 'react'
+import React, { useContext, createContext, useReducer } from 'react'
 import { initialProfileState } from './ProfileStateReducer'
-import { DeckStateTypes } from './DeckTypes'
-
-type ProfileStateTypes = {
-  decks: DeckStateTypes[] | undefined[],
-  loading: boolean
-}
-
-type ProfileActionTypes = {
-  type: string,
-  payload: any
-}
-
-type DeckReducerType = (
-  state: ProfileStateTypes,
-  action: ProfileActionTypes
-) => ProfileStateTypes
-
-type ProfileContextProviderType = {
-  reducer: DeckReducerType
-  initialState: ProfileStateTypes
-  children: React.ReactNode
-}
-
-type ProfileReducerTypes = [ProfileStateTypes, Dispatch<ProfileActionTypes>]
+import { ProfileContextProviderType, ProfileReducerTypes } from './ProfileTypes'
 
 const ProfileContext = createContext<ProfileReducerTypes>([
   initialProfileState,
@@ -41,8 +18,6 @@ const ProfileContextProvider = ({
     </ProfileContext.Provider>
   )
 }
-
-export { ProfileStateTypes, ProfileActionTypes }
 
 export function useProfileContext () {
   return useContext(ProfileContext)
