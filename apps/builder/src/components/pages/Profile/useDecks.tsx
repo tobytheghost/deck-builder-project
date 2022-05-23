@@ -1,9 +1,10 @@
+import { CardItemTypes } from '../../../contexts/DeckTypes'
 import { useEffect, useState } from 'react'
 import { db } from '../../../firebase'
 import safeParseJson from '../../../helpers/safeParseJson'
 
 export const useDecks = (lookupId: string | null) => {
-  const [decks, setDecks] = useState<{ id: string; list: any; }[]>([])
+  const [decks, setDecks] = useState<{ id: string; list: CardItemTypes[]; }[]>([])
   const [isDecksError, setIsDecksError] = useState(false)
   const [isDecksLoading, setIsDecksLoading] = useState(true)
 

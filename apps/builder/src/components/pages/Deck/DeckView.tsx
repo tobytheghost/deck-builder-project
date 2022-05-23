@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { Column, Container, H1, H2, H3, P, Row } from '@deck-app/ui'
 import Page from '../../parts/Page'
 import {
