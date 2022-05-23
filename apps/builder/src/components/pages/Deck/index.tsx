@@ -4,11 +4,14 @@ import {
   initialDeckState
 } from '../../../contexts/DeckContext'
 import deckReducer from '../../../contexts/DeckStateReducer'
+import CardPreviewProvider from '../../../contexts/CardPreviewContext'
 
 const Deck = () => {
   return (
     <DeckContextProvider reducer={deckReducer} initialState={initialDeckState}>
-      <DeckContainer />
+      <CardPreviewProvider>
+        <DeckContainer />
+      </CardPreviewProvider>
     </DeckContextProvider>
   )
 }

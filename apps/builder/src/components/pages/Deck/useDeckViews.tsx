@@ -1,6 +1,6 @@
 import { DeckStateTypes } from '../../../../src/contexts/DeckTypes'
 
-export const useDeckViews = (deck: DeckStateTypes, filter: string) => {
+export const useDeckViews = (deck: DeckStateTypes, filter?: string) => {
   const boards = ['Main Deck', 'Sideboard']
 
   const types = [

@@ -1,10 +1,19 @@
 @import '../../../../../../libs/ui/src/styles/_breakpoints.scss';
+@import '../../../../../../libs/ui/src/styles/_colours.scss';
 
 .card {
-  line-height: 22px;
+  line-height: 18px;
   margin-bottom: .5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  break-inside: avoid;
+  font-size: 14px;
   i {
     margin-right: 0.125rem;
+  }
+  span:first-child {
+    flex: 1;
   }
 }
 
@@ -18,6 +27,12 @@
   }
   display: block;
   text-align: left;
+}
+
+.preview {
+  max-width: 25%;
+  text-align: left;
+  img { max-width: 100% }
 }
 
 .header-image {
@@ -35,22 +50,29 @@
 .image-container {
   flex: 1;
   @include md {
-    flex: 0.5;
-  }
-  @include xl {
     flex: 0.33;
   }
   img {
-    max-width: 100%;
+    width: 100%;
   }
 }
 
 .content-container {
   flex: 1;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
   @include md {
-    flex: 0.5;
-  }
-  @include xl {
     flex: 0.67;
+  }
+}
+
+.deck-section {
+  p {
+    padding-bottom: .5rem;
+    border-bottom: 1px solid $fern-green;
+    &:last-of-type {
+      border-bottom: unset;
+    }
   }
 }

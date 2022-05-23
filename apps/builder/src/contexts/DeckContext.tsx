@@ -1,9 +1,11 @@
-import React, { useContext, createContext, useReducer, Dispatch } from 'react'
+import { useContext, createContext, useReducer, Dispatch } from 'react'
 import {
   DeckContextProviderType,
   DeckReducerActionType,
   DeckStateTypes
 } from './DeckTypes'
+
+type DeckContextTypes = [DeckStateTypes, Dispatch<DeckReducerActionType>]
 
 export const initialDeckState: DeckStateTypes = {
   id: '',
@@ -14,8 +16,6 @@ export const initialDeckState: DeckStateTypes = {
   tag: '',
   format: ''
 }
-
-type DeckContextTypes = [DeckStateTypes, Dispatch<DeckReducerActionType>]
 
 const deckContext = createContext<DeckContextTypes>([
   initialDeckState,
