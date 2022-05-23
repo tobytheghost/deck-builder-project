@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Column, Container, H1, H2, H3, P, Row } from '@deck-app/ui'
 import Page from '../../parts/Page'
 import {
@@ -45,7 +45,13 @@ const DeckView = (props: DeckProps) => {
   } = props
   const views = useDeckViews(props)
   const { scryfallData, handleSetCard } = useCardPreview()
-  handleSetCard(list[0])
+
+  useEffect(() => {
+    if(list.length) {
+      handleSetCard(list[0])
+    }
+  }, [list, handleSetCard])
+
   console.log(scryfallData)
   return (
     <Page>

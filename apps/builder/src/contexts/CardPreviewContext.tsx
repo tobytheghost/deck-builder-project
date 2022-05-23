@@ -25,6 +25,7 @@ const defaultCardPreviewState: CardPreviewStateTypes = {
 }
 
 const getCard = async (card: CardItemTypes) => {
+  if(!card || !card.id) return
   const cache = localStorage.getItem('scryfall-card-details')
   const cacheData = cache && safeParseJson(cache)
   const cardData = cacheData && cacheData[card.id]
@@ -54,6 +55,7 @@ const CardPreviewContext = createContext(defaultCardPreviewState)
 const CardPreviewProvider = ({ children }: { children: ReactNode }) => {
   const [card, setCard] = useState(defaultCardPreviewState.card)
   const [scryfallData, setScryfallData] = useState<ScryfallDataTypes | null>(null)
+  const [isLoading, setIsLoading] = useState(true)
 
   const handleSetCard = (card: CardItemTypes) => {
     setCard(card)
@@ -63,13 +65,14 @@ const CardPreviewProvider = ({ children }: { children: ReactNode }) => {
     const getData = async (card: CardItemTypes) => {
       const cardData = await getCard(card)
       setScryfallData(cardData)
+      setIsLoading(false)
     }
     getData(card)
   }, [card])
 
   return (
     <CardPreviewContext.Provider value={{ card, scryfallData, handleSetCard }}>
-      {children}
+      {!isLoading && children}
     </CardPreviewContext.Provider>
   )
 }
