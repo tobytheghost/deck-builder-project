@@ -1,0 +1,68 @@
+{
+  "sourceRoot": "apps/builder-functions/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@simondotm/nx-firebase:build",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/apps/builder-functions",
+        "main": "apps/builder-functions/src/index.ts",
+        "tsConfig": "apps/builder-functions/tsconfig.app.json",
+        "packageJson": "apps/builder-functions/package.json",
+        "assets": [
+          "apps/builder-functions/*.md",
+          "apps/builder-functions/.runtimeconfig.json"
+        ]
+      }
+    },
+    "deploy": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "command": "firebase deploy --config firebase.builder-functions.json"
+      }
+    },
+    "getconfig": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "command": "firebase functions:config:get --config firebase.builder-functions.json > apps/builder-functions/.runtimeconfig.json"
+      }
+    },
+    "emulate": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "command": "firebase emulators:start --config firebase.builder-functions.json"
+      }
+    },
+    "serve": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "commands": [
+          {
+            "command": "nx run builder-functions:build --with-deps && nx run builder-functions:build --watch"
+          },
+          {
+            "command": "nx run builder-functions:emulate"
+          }
+        ],
+        "parallel": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/builder-functions/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/apps/builder-functions"],
+      "options": {
+        "jestConfig": "apps/builder-functions/jest.config.ts",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}

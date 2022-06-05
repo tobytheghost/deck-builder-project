@@ -36,8 +36,8 @@ export interface CardItemTypes {
 type CardLegality = 'not_legal' | 'legal'
 
 export interface ScryfallDataTypes {
-  name: string,
-  legalities: {
+  name?: string,
+  legalities?: {
     standard: CardLegality
     future: CardLegality
     historic: CardLegality
@@ -58,13 +58,13 @@ export interface ScryfallDataTypes {
     oldschool: CardLegality
     premodern: CardLegality
   }
-  image_uris: {
+  image_uris?: {
     small: string,
     normal: string,
     large: string,
     border_crop: string
   }
-  prices: {
+  prices?: {
     usd: string | null
     usd_foil: string | null
     usd_etched: string | null
@@ -72,19 +72,19 @@ export interface ScryfallDataTypes {
     eur_foil: string | null
     tix: string | null
   }
-  related_uris: {
+  related_uris?: {
     gatherer: string | null
     tcgplayer_infinite_articles: string | null
     tcgplayer_infinite_decks: string | null
     edhrec: string | null
   }
-  purchase_uris: {
+  purchase_uris?: {
     tcgplayer: string | null
     cardmarket: string | null
     cardhoarder: string | null
   },
-  scryfall_uri: string | null,
-  border_color: string
+  scryfall_uri?: string | null,
+  border_color?: string
 }
 
 export interface DeckReducerActionType {

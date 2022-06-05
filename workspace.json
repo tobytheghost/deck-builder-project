@@ -3,6 +3,7 @@
   "projects": {
     "builder": "apps/builder",
     "builder-e2e": "apps/builder-e2e",
+    "builder-functions": "apps/builder-functions",
     "ui": "libs/ui",
     "website": "apps/website",
     "website-e2e": "apps/website-e2e"

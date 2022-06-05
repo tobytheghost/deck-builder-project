@@ -12,6 +12,12 @@ const Login: React.FunctionComponent = () => {
   const [loading, setLoading] = useState(false)
   const navigate = useNavigate()
 
+  const Error = () => {
+    if (!error) return null
+    const className = [styles['alert'], styles['alert-danger']].join(' ')
+    return <P className={className}>{error}</P>
+  }
+
   const handleSubmit = async (e: React.SyntheticEvent) => {
     e.preventDefault()
     if (!emailRef.current || !passwordRef.current) {
@@ -32,16 +38,10 @@ const Login: React.FunctionComponent = () => {
   return (
     <main className='app'>
       <Section className={styles['section']}>
-        <Row>
+        <Row className={styles['center']}>
           <div className={styles['login']}>
             <H3>Login</H3>
-            {error && (
-              <P
-                className={[styles['alert'], styles['alert-danger']].join(' ')}
-              >
-                {error}
-              </P>
-            )}
+            <Error />
             <Form onSubmit={handleSubmit}>
               <div>
                 <label className={styles['label']}>

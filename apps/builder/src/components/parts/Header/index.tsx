@@ -1,7 +1,6 @@
-import React from 'react'
 import { Container } from '@deck-app/ui'
-import style from './header.module.scss'
 import Navigation from '../Navigation'
+import style from './header.module.scss'
 
 const Header = (): JSX.Element => {
   return (

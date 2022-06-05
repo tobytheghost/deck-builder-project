@@ -1,13 +1,11 @@
 import React from 'react'
 import styles from './typography.module.scss'
 
-type paragraphProps = {
-  children: React.ReactNode
-  className?: string
+interface ParagraphProps extends React.HTMLAttributes<HTMLParagraphElement> {
   color?: string
 }
 
-const P = (props: paragraphProps) => {
+const P = (props: ParagraphProps) => {
   const { color, children, className, ...rest } = props
   const paragraphClass = [styles['paragraph'], className, color && styles[color]]
     .filter(Boolean)

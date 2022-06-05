@@ -9,7 +9,7 @@ type rowTypes = {
 
 const Row = ({ className, children, ...rest }: rowTypes): JSX.Element => {
   return (
-    <div {...rest} className={[className, styles['row']].join(' ')}>
+    <div {...rest} className={[styles['row'], className].join(' ')}>
       {children}
     </div>
   )

@@ -3,7 +3,7 @@
 
 .card {
   line-height: 18px;
-  margin-bottom: .5rem;
+  margin-bottom: 0.5rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -11,9 +11,6 @@
   font-size: 14px;
   i {
     margin-right: 0.125rem;
-  }
-  span:first-child {
-    flex: 1;
   }
 }
 
@@ -30,9 +27,77 @@
 }
 
 .preview {
-  max-width: 25%;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 2rem;
+  background: #dad7cd;
+  z-index: 99;
+  border-radius: 4px;
+  box-shadow: 0px 0px 5px 5px rgb(0 0 0 / 10%);
+  width: 320px;
+  max-width: 100%;
   text-align: left;
-  img { max-width: 100% }
+  @include md {
+    text-align: left;
+    position: unset;
+    top: unset;
+    left: unset;
+    transform: unset;
+    padding: unset;
+    background: unset;
+    z-index: unset;
+    border-radius: unset;
+    box-shadow: unset;
+  }
+  img {
+    max-width: 100%;
+  }
+}
+
+.preview-wrapper {
+  position: fixed;
+  @include md {
+    max-width: 25%;
+    position: unset;
+  }
+}
+
+.preview-wrapper-open {
+  background-color: rgb(0 0 0 / 50%);
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 99;
+  @include md {
+    background-color: unset;
+    top: unset;
+    left: unset;
+    right: unset;
+    bottom: unset;
+  }
+}
+
+.preview-closed {
+  display: none;
+  @include md {
+    display: unset;
+  }
+}
+
+.preview-open {
+  display: unset;
+  @include md {
+    display: unset;
+  }
+}
+
+.preview-close {
+  @include md {
+    display: none;
+  }
 }
 
 .header-image {
@@ -69,10 +134,28 @@
 
 .deck-section {
   p {
-    padding-bottom: .5rem;
+    padding-bottom: 0.5rem;
     border-bottom: 1px solid $fern-green;
     &:last-of-type {
       border-bottom: unset;
     }
+  }
+}
+
+.card-link {
+  width: 100%;
+  text-align: left;
+  border: unset;
+  background: unset;
+  padding: unset;
+  margin: unset;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  break-inside: avoid;
+  cursor: pointer;
+  span:first-child {
+    flex: 1;
+    margin-right: 0.25rem;
   }
 }

@@ -1,0 +1,6 @@
+{
+  "targets": {},
+  "projects": {
+    "staging": "deck-builder-dev"
+  }
+}

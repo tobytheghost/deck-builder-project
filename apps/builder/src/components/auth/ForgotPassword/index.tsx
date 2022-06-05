@@ -29,7 +29,7 @@ const ForgotPassword = () => {
   return (
     <main className='app'>
       <Section className={styles['section']}>
-        <Row>
+        <Row className={styles['center']}>
           <div className={styles['forgot-password']}>
             <H3>Reset Password</H3>
             {error && (

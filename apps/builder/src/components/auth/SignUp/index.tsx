@@ -13,6 +13,12 @@ const SignUp: React.FunctionComponent = () => {
   const [loading, setLoading] = useState(false)
   const navigate = useNavigate()
 
+  const Error = () => {
+    if (!error) return null
+    const className = [styles['alert'], styles['alert-danger']].join(' ')
+    return <P className={className}>{error}</P>
+  }
+
   const handleSubmit = async (e: React.SyntheticEvent) => {
     e.preventDefault()
     if (
@@ -20,7 +26,7 @@ const SignUp: React.FunctionComponent = () => {
       !passwordRef.current ||
       !passwordConfirmRef.current
     ) {
-      return
+      return setError('Please fill out all fields')
     }
     if (passwordRef.current.value !== passwordConfirmRef.current.value)
       return setError('Passwords do not match')
@@ -39,16 +45,10 @@ const SignUp: React.FunctionComponent = () => {
   return (
     <main className='app'>
       <Section className={styles['section']}>
-        <Row>
+        <Row className={styles['center']}>
           <div className={styles['sign-up']}>
             <H3>Sign Up</H3>
-            {error && (
-              <P
-                className={[styles['alert'], styles['alert-danger']].join(' ')}
-              >
-                {error}
-              </P>
-            )}
+            <Error />
             <Form onSubmit={handleSubmit}>
               <div>
                 <label className={styles['label']}>

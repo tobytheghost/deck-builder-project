@@ -5,15 +5,19 @@
   "scripts": {
     "start": "nx serve",
     "build": "nx build",
-    "test": "nx test"
+    "test": "nx test",
+    "postinstall": "patch-package"
   },
   "private": true,
   "dependencies": {
     "@nrwl/next": "14.1.4",
     "@saeris/react-mana": "^1.0.3",
+    "@simondotm/nx-firebase": "^0.3.3",
     "core-js": "^3.6.5",
     "env-cmd": "^10.1.0",
     "firebase": "^9.8.1",
+    "firebase-admin": "latest",
+    "firebase-functions": "latest",
     "mana-font": "^1.14.0",
     "next": "12.1.5",
     "qrcode.react": "^3.0.2",
@@ -25,6 +29,8 @@
     "tslib": "^2.3.0"
   },
   "devDependencies": {
+    "@angular-devkit/build-angular": "^14.0.0",
+    "@angular-devkit/schematics": "^14.0.0",
     "@nrwl/cli": "14.1.4",
     "@nrwl/cypress": "14.1.4",
     "@nrwl/eslint-plugin-nx": "14.1.4",
@@ -54,6 +60,8 @@
     "eslint-plugin-react-hooks": "4.5.0",
     "jest": "27.5.1",
     "nx": "14.1.4",
+    "patch-package": "^6.4.7",
+    "postinstall-postinstall": "^2.1.0",
     "prettier": "^2.5.1",
     "react-test-renderer": "18.1.0",
     "sass": "1.43.2",

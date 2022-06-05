@@ -3,9 +3,10 @@ import safeParseJson from '../helpers/safeParseJson'
 import { CardItemTypes, ScryfallDataTypes } from './DeckTypes'
 
 interface CardPreviewStateTypes {
-  card: CardItemTypes,
-  scryfallData: ScryfallDataTypes | null
-  handleSetCard: (card: CardItemTypes) => void
+  card: CardItemTypes & ScryfallDataTypes,
+  handleSetCard: (card: CardItemTypes) => void,
+  previewIsOpen: boolean,
+  handleClosePreview: () => void
 }
 
 const defaultCardPreviewState: CardPreviewStateTypes = {
@@ -20,11 +21,14 @@ const defaultCardPreviewState: CardPreviewStateTypes = {
     mana_cost: '',
     image: ''
   },
-  scryfallData: null,
-  handleSetCard: (card: CardItemTypes) => null
+  handleSetCard: (card: CardItemTypes) => null,
+  previewIsOpen: false,
+  handleClosePreview: () => null
+
 }
 
 const getCard = async (card: CardItemTypes) => {
+  console.log(card)
   if(!card || !card.id) return
   const cache = localStorage.getItem('scryfall-card-details')
   const cacheData = cache && safeParseJson(cache)
@@ -54,25 +58,30 @@ const CardPreviewContext = createContext(defaultCardPreviewState)
 
 const CardPreviewProvider = ({ children }: { children: ReactNode }) => {
   const [card, setCard] = useState(defaultCardPreviewState.card)
-  const [scryfallData, setScryfallData] = useState<ScryfallDataTypes | null>(null)
-  const [isLoading, setIsLoading] = useState(true)
+  const [previewIsOpen, setPreviewIsOpen] = useState(false)
+
+  const handleClosePreview = () => {
+    setPreviewIsOpen(false)
+  }
 
   const handleSetCard = (card: CardItemTypes) => {
-    setCard(card)
+    getData(card)
+    setPreviewIsOpen(true)
+  }
+
+  const getData = async (card: CardItemTypes) => {
+    const cardData = await getCard(card)
+    setCard(card => ({...card, ...cardData}))
   }
 
   useEffect(() => {
-    const getData = async (card: CardItemTypes) => {
-      const cardData = await getCard(card)
-      setScryfallData(cardData)
-      setIsLoading(false)
-    }
-    getData(card)
-  }, [card])
+    getData(defaultCardPreviewState.card)
+    setPreviewIsOpen(false)
+  }, [])
 
   return (
-    <CardPreviewContext.Provider value={{ card, scryfallData, handleSetCard }}>
-      {!isLoading && children}
+    <CardPreviewContext.Provider value={{ card, handleSetCard, previewIsOpen, handleClosePreview }}>
+      {children}
     </CardPreviewContext.Provider>
   )
 }
