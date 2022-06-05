@@ -3,7 +3,7 @@ import ProfileView from './ProfileView'
 // import { Navigate } from 'react-router-dom'
 import { useProfileState } from './useProfileState'
 import { useEffect, useState } from 'react'
-import Loading from '../../Loading/Loading'
+import Loading from '../../Loading'
 
 const ProfileContainer = ({ profileId }: { profileId?: string | undefined }) => {
   const [isLoading, setIsLoading] = useState(true)
